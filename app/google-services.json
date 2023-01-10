@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "22140593245",
+    "project_id": "orwma-proj-zad",
+    "storage_bucket": "orwma-proj-zad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22140593245:android:b2b2444777ae7d093359b4",
+        "android_client_info": {
+          "package_name": "com.example.orwma_proj_zad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22140593245-el4tb3euv710j7de3o4shsa39rklfpk1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9PjFOeEn65PrS97mxop2b-OvVSecW6nw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "22140593245-el4tb3euv710j7de3o4shsa39rklfpk1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

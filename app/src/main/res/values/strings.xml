@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">orwma_proj_zad</string>
+    <string name="banner_text">ScoreBoard</string>
+    <string name="favorites_button">Favorites</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
