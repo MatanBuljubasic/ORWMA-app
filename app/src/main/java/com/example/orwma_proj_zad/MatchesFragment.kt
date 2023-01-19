@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -79,9 +80,25 @@ class MatchesFragment : Fragment(), MatchRecyclerAdapter.ContentListener {
 
     override fun onItemButtonClick(index: Int, match: Match, clickType: MatchClick) {
         if(clickType == MatchClick.FAVORITE){
+            val list = ArrayList<Match>()
+            db.collection("matches").get().addOnSuccessListener { it ->
+                for (data in it.documents) {
+                    val match = data.toObject(Match::class.java)
+                    if (match != null) {
+                        list.add(match)
+                    }
+                }
+                val addedMatch: Match? = list.firstOrNull{it.id == match.id}
+                if(addedMatch != null){
+                    Toast.makeText(context, "Match already in favorites", Toast.LENGTH_SHORT).show()
+                } else {
+                    db.collection("matches").add(match)
+                    Toast.makeText(context, "Match added to favorites", Toast.LENGTH_SHORT).show()
+                }
+            }.addOnFailureListener {
+                Log.e("MatchesFragment", it.message.toString())
+            }
 
-
-            db.collection("matches").add(match)
         }
     }
 

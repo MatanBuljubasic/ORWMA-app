@@ -9,7 +9,8 @@ data class Match(
     val commence_time: String? = null,
     val home_team: String? = null,
     val away_team: String? = null,
-    val scores: ArrayList<Score>? = null
+    val scores: ArrayList<Score>? = null,
+    var documentId: String = ""
 )
 
 data class Score(

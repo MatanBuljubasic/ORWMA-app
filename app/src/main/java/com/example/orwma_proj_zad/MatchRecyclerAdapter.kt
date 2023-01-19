@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import java.text.SimpleDateFormat
 import kotlin.time.Duration
@@ -63,6 +64,8 @@ class MatchRecyclerAdapter(private val items: ArrayList<Match>, private val list
 
             favoriteButton.setOnClickListener{
                 listener.onItemButtonClick(index, match, MatchClick.FAVORITE)
+                favoriteButton.visibility = View.GONE
+
             }
         }
     }

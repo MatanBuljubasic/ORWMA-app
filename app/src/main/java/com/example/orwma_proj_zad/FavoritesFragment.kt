@@ -53,6 +53,9 @@ class FavoritesFragment : Fragment(), MatchRecyclerAdapter.ContentListener {
                         val list = ArrayList<Match>()
                         for( data in it.documents){
                             val match = data.toObject(Match::class.java)
+                            if (match != null) {
+                                match.documentId = data.id
+                            }
                             if(match != null){
                                 list.add(match)
                             }
@@ -61,6 +64,7 @@ class FavoritesFragment : Fragment(), MatchRecyclerAdapter.ContentListener {
                             val favoriteMatch: Match? =
                                 response.body()?.firstOrNull { it.id == match.id }
                             if (favoriteMatch != null) {
+                                favoriteMatch.documentId = match.documentId
                                 favoriteMatchesList.add(favoriteMatch)
                             }
                         }
@@ -92,7 +96,7 @@ class FavoritesFragment : Fragment(), MatchRecyclerAdapter.ContentListener {
     override fun onItemButtonClick(index: Int, match: Match, clickType: MatchClick) {
         if(clickType == MatchClick.FAVORITE){
             recyclerAdapter.removeItem(index)
-            db.collection("matches").document(match.id).delete()
+            db.collection("matches").document(match.documentId).delete()
         }
     }
 
